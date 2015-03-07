@@ -1,0 +1,12 @@
+{
+  "name": "puppetfinland-systemd",
+  "version": "0.1.0",
+  "author": "Puppet-Finland team",
+  "license": "BSD license",
+  "summary": "Setup systemd",
+  "source": "https://github.com/Puppet-Finland/systemd.git",
+  "project_page": "https://github.com/Puppet-Finland/systemd",
+  "dependencies": [
+    { "name": "puppetfinland/os", "version_requirement": ">= 0.5.4" }
+  ]
+}
