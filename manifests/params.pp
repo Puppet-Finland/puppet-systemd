@@ -5,7 +5,7 @@
 #
 class systemd::params {
 
-    include os::params
+    include ::os::params
 
     $unit_dir = '/etc/systemd/system'
 
