@@ -29,8 +29,10 @@ class systemd
 
 if $manage == 'yes' {
 
-    if $manage_config == 'yes' {
-        # Nothing here yet
+    if str2bool($::has_systemd) {
+        if $manage_config == 'yes' {
+            include ::systemd::service
+        }
     }
 }
 }
