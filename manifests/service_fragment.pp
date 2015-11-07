@@ -36,21 +36,21 @@ define systemd::service_fragment
 
     $fragment_dir = "/etc/systemd/system/${service_name}.service.d"
 
-    file { "systemd-${service_name}.service.d":
-        ensure => $ensure_dir,
-        name   => $fragment_dir,
+    File {
         owner  => $::os::params::adminuser,
         group  => $::os::params::admingroup,
         mode   => '0755',
+    }
+
+    file { "systemd-${service_name}.service.d":
+        ensure => $ensure_dir,
+        name   => $fragment_dir,
     }
 
     file { "systemd-${service_name}-puppet.conf":
         ensure  => $ensure_file,
         name    => "${fragment_dir}/puppet.conf",
         content => template('systemd/puppet.conf.erb'),
-        owner   => $::os::params::adminuser,
-        group   => $::os::params::admingroup,
-        mode    => '0755',
         require => File["systemd-${service_name}.service.d"],
         notify  => Class['systemd::service'],
     }
