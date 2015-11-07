@@ -4,11 +4,15 @@ A Puppet module for managing systemd
 
 # Module usage
 
-For now the purpose of this module is to distribute custom facts:
+This module includes one custom fact:
 
 * [Fact: has_systemd](lib/facter/has_systemd.rb)
 
-A stub main class is included, though:
+There's also a define which can create unit file overrides for services:
+
+* [Define: systemd::service_fragment](manifests/service_fragment.pp)
+
+In addition there's the main class, which is currently a stub:
 
 * [Class: systemd](manifests/init.pp)
 
