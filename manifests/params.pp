@@ -16,6 +16,10 @@ class systemd::params {
         'Debian': {
             # Nothing here yet
         }
+        'FreeBSD': {
+            # FreeBSD does not have systemd, but we want to be able to use the 
+            # provided facts
+        }
         default: {
             fail("Unsupported OS: ${::osfamily}")
         }
