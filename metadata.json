@@ -1,6 +1,6 @@
 {
   "name": "puppetfinland-systemd",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": "Puppet-Finland team",
   "summary": "Setup systemd",
   "license": "BSD-2-Clause",
