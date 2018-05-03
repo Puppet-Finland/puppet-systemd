@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Puppet-Finland/puppet-systemd.svg?branch=master)](https://travis-ci.org/Puppet-Finland/puppet-systemd)
+
 # systemd
 
 A Puppet module for managing some aspects of systemd
