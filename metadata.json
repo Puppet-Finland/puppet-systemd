@@ -2,11 +2,51 @@
   "name": "puppetfinland-systemd",
   "version": "0.1.2",
   "author": "Puppet-Finland team",
-  "license": "BSD license",
   "summary": "Setup systemd",
-  "source": "https://github.com/Puppet-Finland/systemd.git",
-  "project_page": "https://github.com/Puppet-Finland/systemd",
+  "license": "BSD-2-Clause",
+  "source": "https://github.com/Puppet-Finland/puppet-systemd.git",
+  "project_page": "https://github.com/Puppet-Finland/puppet-systemd",
   "dependencies": [
-    { "name": "puppetfinland/os", "version_requirement": ">= 0.5.4" }
-  ]
+    {
+      "name": "puppetfinland/os",
+      "version_requirement": ">= 0.5.4"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "8",
+        "9"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "14.04",
+        "16.04"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.0.0"
+    }
+  ],
+  "pdk-version": "1.4.1",
+  "template-url": "file:///opt/puppetlabs/pdk/share/cache/pdk-templates.git",
+  "template-ref": "1.4.1-0-g52adbbb"
 }
