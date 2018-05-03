@@ -2,7 +2,7 @@
   "name": "puppetfinland-systemd",
   "version": "0.1.7",
   "author": "Puppet-Finland team",
-  "summary": "Setup systemd",
+  "summary": "Helper classes and defines for use with systemd",
   "license": "BSD-2-Clause",
   "source": "https://github.com/Puppet-Finland/puppet-systemd.git",
   "project_page": "https://github.com/Puppet-Finland/puppet-systemd",
