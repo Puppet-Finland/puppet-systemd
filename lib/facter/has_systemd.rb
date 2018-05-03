@@ -1,10 +1,9 @@
 Facter.add('has_systemd') do
-  has_systemctl = File.file?('/bin/systemctl')
-  if has_systemctl
-    retval = true
-  else
-    retval = false
-  end
+  retval = if File.file?('/bin/systemctl')
+             true
+           else
+             false
+           end
   setcode do
     retval
   end
