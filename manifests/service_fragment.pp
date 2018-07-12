@@ -16,13 +16,18 @@
 # [*service_name*]
 #   Name of the system service.
 # [*pidfile*]
-#   Location of the pidfile for the service.
+#   Location of the pidfile for the service. This parameter is optional if you
+#   are using a custom template.
+# [*template_path*]
+#   Path to an ERB template to use instead of the default (puppet.conf.erb) 
+#   included in this class.
 #
 define systemd::service_fragment
 (
-    $ensure,
-    $service_name,
-    $pidfile
+    Enum['running','present','absent'] $ensure,
+    String                             $service_name,
+    Optional[String]                   $pidfile = undef,
+    Optional[String]                   $template_path = undef
 )
 {
 
@@ -62,10 +67,16 @@ define systemd::service_fragment
         name   => $fragment_dir,
     }
 
+    # Check if we're passed a custom template as a parameter
+    $content = $template_path ? {
+        undef   => 'systemd/puppet.conf.erb',
+        default => $template_path,
+    }
+
     file { "systemd-${service_name}-puppet.conf":
         ensure  => $ensure_file,
         name    => "${fragment_dir}/puppet.conf",
-        content => template('systemd/puppet.conf.erb'),
+        content => template($content),
         require => File["systemd-${service_name}.service.d"],
         notify  => Class['systemd::service'],
     }
